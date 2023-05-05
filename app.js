@@ -6,7 +6,7 @@ function getPostcodeFromArgs() {
     return String(postcode);
   }
   throw new Error(
-    "No postcode given. You can provide a postcode by running `node app.js <postcode>.`"
+    "No postcode given. You can provide a postcode by running `node app.js <postcode>. Your postcode should not contain spaces.`"
   );
 }
 
@@ -17,6 +17,5 @@ async function geocodePostcode(postcode) {
   return await response.json();
 }
 
-let coords = await geocodePostcode(hardcodedPostcode);
+let coords = await geocodePostcode(getPostcodeFromArgs());
 console.log(coords);
-console.log(getPostcodeFromArgs());
