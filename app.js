@@ -20,5 +20,11 @@ async function geocodePostcode(postcode) {
   return await response.json();
 }
 
-let coords = await geocodePostcode(getPostcodeFromArgs());
-console.log(coords);
+let rawJSONResponse = await geocodePostcode(getPostcodeFromArgs());
+function getCoordinates(rawJSON) {
+  let longitude = rawJSON["result"]["longitude"];
+  let latitude = rawJSON["result"]["latitude"];
+  console.log(`(${longitude}, ${latitude})`);
+}
+
+getCoordinates(rawJSONResponse);
