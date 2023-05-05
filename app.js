@@ -1,5 +1,11 @@
 let base_endpoint = "https://api.postcodes.io/postcodes/";
 
+async function validatePostcode(postcode) {
+  let rawresponse = await fetch(`${base_endpoint}${postcode}/validate`);
+  let response = await rawresponse.json();
+  return response["result"];
+}
+
 function getPostcodeFromArgs() {
   let postcode = process.argv[2];
   if (process.argv.length > 3) {
