@@ -1,8 +1,9 @@
 let base_endpoint = "https://api.postcodes.io/postcodes/";
 
-function parseArgs() {
+function getPostcodeFromArgs() {
   // print process.argv
-  console.log(process.argv[0]);
+  let postcode = process.argv[2];
+  return String(postcode);
 }
 
 let hardcodedPostcode = "se13 7gp"; // Postcode hardcoded for the moment
@@ -14,5 +15,3 @@ async function geocodePostcode(postcode) {
 
 let coords = await geocodePostcode(hardcodedPostcode);
 console.log(coords);
-
-parseArgs();
