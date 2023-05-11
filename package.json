@@ -1,13 +1,21 @@
 {
   "name": "post-code-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alphagov/learningtime-ad-sem1-postcode-geocoder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alphagov/learningtime-ad-sem1-postcode-geocoder/issues"
+  },
+  "homepage": "https://github.com/alphagov/learningtime-ad-sem1-postcode-geocoder#readme",
+  "description": ""
 }
