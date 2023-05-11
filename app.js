@@ -5,13 +5,13 @@ function log(msg) {
   console.log(msg);
 }
 
-async function validatePostcode(postcode) {
+export async function validatePostcode(postcode) {
   let rawresponse = await fetch(`${base_endpoint}${postcode}/validate`);
   let response = await rawresponse.json();
   return response["result"];
 }
 
-function getPostcodeFromArgs() {
+export function getPostcodeFromArgs() {
   let postcode = process.argv[2];
   if (process.argv.length > 3) {
     throw new Error(
@@ -26,13 +26,13 @@ function getPostcodeFromArgs() {
   );
 }
 
-async function geocodePostcode(postcode) {
+export async function geocodePostcode(postcode) {
   let response = await fetch(`https://api.postcodes.io/postcodes/${postcode}`);
   return await response.json();
 }
 
 let rawJSONResponse = await geocodePostcode(getPostcodeFromArgs());
-function getCoordinates(rawJSON) {
+export function getCoordinates(rawJSON) {
   let longitude = rawJSON["result"]["longitude"];
   let latitude = rawJSON["result"]["latitude"];
   return `(${longitude}, ${latitude})`;
