@@ -1,5 +1,16 @@
 let base_endpoint = "https://api.postcodes.io/postcodes/";
 
+// Quicker logging helper function
+function log(msg) {
+  console.log(msg);
+}
+
+async function validatePostcode(postcode) {
+  let rawresponse = await fetch(`${base_endpoint}${postcode}/validate`);
+  let response = await rawresponse.json();
+  return response["result"];
+}
+
 function getPostcodeFromArgs() {
   let postcode = process.argv[2];
   if (process.argv.length > 3) {
@@ -24,7 +35,19 @@ let rawJSONResponse = await geocodePostcode(getPostcodeFromArgs());
 function getCoordinates(rawJSON) {
   let longitude = rawJSON["result"]["longitude"];
   let latitude = rawJSON["result"]["latitude"];
-  console.log(`(${longitude}, ${latitude})`);
+  return `(${longitude}, ${latitude})`;
 }
 
-getCoordinates(rawJSONResponse);
+async function main() {
+  let postcode = getPostcodeFromArgs();
+  let postcodeIsValid = await validatePostcode(postcode);
+  if (postcodeIsValid) {
+    let coordinates = await geocodePostcode(postcode);
+    let formattedCoordinates = getCoordinates(coordinates);
+    log(formattedCoordinates);
+  } else {
+    throw new Error(`${postcode} is not a valid uk postcode.`);
+  }
+}
+
+main();
