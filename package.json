@@ -17,5 +17,8 @@
     "url": "https://github.com/alphagov/learningtime-ad-sem1-postcode-geocoder/issues"
   },
   "homepage": "https://github.com/alphagov/learningtime-ad-sem1-postcode-geocoder#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
 }
