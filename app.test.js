@@ -1,8 +1,3 @@
-// PSEUDO
-
-// geocodePostcode(goodPostcode) returns (long, lat)
-// geocodePostcode(badPostcode) throws TypeError (/Cannot read properties/)
-
 // getCoordinates(goodJSONObject) returns (long, lat) string
 // getCoordinates(badJSONObject) throws TypeError (TypeError: Cannot read properties of undefined)
 
@@ -56,3 +51,27 @@ describe("Postcode validation", () => {
     expect(result).toBe(false);
   });
 });
+
+describe("Postcode to coordinate lookup", () => {
+  test("geocodePostcode(se137gp) latitude is 51.46423", async () => {
+    const result = await geocodePostcode("se137gp");
+    expect(result).toHaveProperty("result.longitude");
+  });
+
+  test("geocodePostcode(se137gp) longitude is 51.46423", async () => {
+    const result = await geocodePostcode("se137gp");
+    expect(result["result"]["longitude"]).toBe(-0.015401);
+  });
+
+  test("geocodePostcode('thisisatest') returns a json response containing 'Invalid postcode'", async () => {
+    const result = await geocodePostcode("thisisatest");
+    expect(result["error"]).toBe("Invalid postcode");
+  });
+});
+
+// describe("Coordinate JSON object cleanup", () => {
+//   test("getCoordinates(correctly formatter JSON object)", () => {
+//     const result = getCoordinates();
+//     expect(result["error"]).toBe("Invalid postcode");
+//   });
+// });
