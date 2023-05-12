@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "node --no-warnings=ExperimentalWarning --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "start": "node --no-warnings=ExperimentalWarning app.js"
+    "start": "node --no-warnings=ExperimentalWarning cli.js"
   },
   "keywords": [],
   "author": "",
