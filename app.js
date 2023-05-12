@@ -2,7 +2,7 @@ import {Decimal2DMS} from 'dms-to-decimal';
 let base_endpoint = "https://api.postcodes.io/postcodes/";
 
 // Quicker logging helper function
-function log(msg) {
+export function log(msg) {
   console.log(msg);
 }
 
