@@ -8,7 +8,7 @@ import {
 const base_maps_url = "http://maps.google.com/maps?z=12&t=m&q=loc:";
 
 export function getPostcodeFromArgs() {
-  let postcode = process.argv[2];
+  const postcode = process.argv[2];
   if (process.argv.length > 3) {
     throw new Error(
       "Too many arguments. This tool expects a single UK postcode argument to be given on the command line. Your postcode should not contain any spaces.`"
