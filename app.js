@@ -35,13 +35,7 @@ export async function geocodePostcode(postcode) {
 export function getCoordinates(rawJSON) {
   let longitude = rawJSON["result"]["longitude"];
   let latitude = rawJSON["result"]["latitude"];
-
-  const latDMS = Decimal2DMS(latitude, 'latitude');
-  console.log(latDMS)
-  const longDMS = Decimal2DMS(longitude, 'longitude');
-  console.log(longDMS)
-
-  return `(${latitude}, ${longitude})`;
+  return [latitude, longitude];
 }
 
 export async function main() {
@@ -49,8 +43,7 @@ export async function main() {
   let postcodeIsValid = await validatePostcode(postcode);
   if (postcodeIsValid) {
     let coordinates = await geocodePostcode(postcode);
-    let formattedCoordinates = getCoordinates(coordinates);
-    return formattedCoordinates;
+    return getCoordinates(coordinates);
   } else {
     throw new Error(`${postcode} is not a valid uk postcode.`);
   }
