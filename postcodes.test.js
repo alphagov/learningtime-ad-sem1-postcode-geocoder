@@ -1,8 +1,3 @@
-// getCoordinates(goodJSONObject) returns (long, lat) string
-// getCoordinates(badJSONObject) throws TypeError (TypeError: Cannot read properties of undefined)
-
-// main() should never return nil/undefined/etc
-
 import {
   validatePostcode,
   geocodePostcode,
