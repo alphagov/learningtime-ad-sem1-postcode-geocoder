@@ -23,14 +23,3 @@ export function getCoordinates(rawJSON) {
   const latitude = rawJSON["result"]["latitude"];
   return [latitude, longitude];
 }
-
-export async function main(postcodeFromArgs) {
-  const postcode = postcodeFromArgs;
-  const postcodeIsValid = await validatePostcode(postcode);
-  if (postcodeIsValid) {
-    const coordinates = await geocodePostcode(postcode);
-    return getCoordinates(coordinates);
-  } else {
-    throw new Error(`${postcode} is not a valid uk postcode.`);
-  }
-}
