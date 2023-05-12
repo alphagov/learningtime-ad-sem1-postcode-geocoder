@@ -59,8 +59,13 @@ describe("Argument parsing", () => {
 });
 
 describe("Postcode validation", () => {
-  test("validatePostcode(se137gp)", async () => {
+  test("validatePostcode(se137gp) returns true", async () => {
     const result = await validatePostcode("se137gp");
     expect(result).toBe(true);
+  });
+
+  test("validatePostcode(thisisn'tarealpostcode) returns false", async () => {
+    const result = await validatePostcode("thisisn'tarealpostcode");
+    expect(result).toBe(false);
   });
 });
