@@ -43,6 +43,7 @@ export async function main() {
   if (postcodeIsValid) {
     let coordinates = await geocodePostcode(postcode);
     let formattedCoordinates = getCoordinates(coordinates);
+    return formattedCoordinates;
   } else {
     throw new Error(`${postcode} is not a valid uk postcode.`);
   }

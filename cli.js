@@ -1,3 +1,3 @@
 import { main } from "./app.js";
 
-main();
+console.log(await main());
