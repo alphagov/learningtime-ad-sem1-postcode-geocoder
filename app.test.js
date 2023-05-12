@@ -1,9 +1,5 @@
 // PSEUDO
 
-// validatePostcode(goodPostcode) returns true
-// validatePostcode(badPostcode) returns false
-// validatePostcode(int) returns false
-
 // geocodePostcode(goodPostcode) returns (long, lat)
 // geocodePostcode(badPostcode) throws TypeError (/Cannot read properties/)
 
@@ -20,16 +16,7 @@ import {
 } from ".";
 
 describe("Argument parsing", () => {
-  test("node app.js se137gp", () => {
-    // Set up virtual command prompt
-    process.argv = ["node", "app.js"];
-    process.argv.push("se137gp");
-
-    const result = getPostcodeFromArgs();
-    expect(result).toBe("se137gp");
-  });
-
-  test("node app.js se137gp", () => {
+  test("'node app.js se137gp' gets se137gp from argv", () => {
     // Set up virtual command prompt
     process.argv = ["node", "app.js"];
     process.argv.push("se137gp");
