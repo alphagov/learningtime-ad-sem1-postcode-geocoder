@@ -57,3 +57,10 @@ describe("Argument parsing", () => {
     }).toThrow();
   });
 });
+
+describe("Postcode validation", () => {
+  test("validatePostcode(se137gp)", async () => {
+    const result = await validatePostcode("se137gp");
+    expect(result).toBe(true);
+  });
+});
