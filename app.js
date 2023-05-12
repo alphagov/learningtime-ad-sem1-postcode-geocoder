@@ -31,23 +31,19 @@ export async function geocodePostcode(postcode) {
   return await response.json();
 }
 
-let rawJSONResponse = await geocodePostcode(getPostcodeFromArgs());
 export function getCoordinates(rawJSON) {
   let longitude = rawJSON["result"]["longitude"];
   let latitude = rawJSON["result"]["latitude"];
   return `(${longitude}, ${latitude})`;
 }
 
-async function main() {
+export async function main() {
   let postcode = getPostcodeFromArgs();
   let postcodeIsValid = await validatePostcode(postcode);
   if (postcodeIsValid) {
     let coordinates = await geocodePostcode(postcode);
     let formattedCoordinates = getCoordinates(coordinates);
-    log(formattedCoordinates);
   } else {
     throw new Error(`${postcode} is not a valid uk postcode.`);
   }
 }
-
-main();
