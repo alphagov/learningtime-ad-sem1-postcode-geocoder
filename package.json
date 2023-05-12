@@ -4,7 +4,8 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --no-warnings=ExperimentalWarning --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "start": "node cli.js"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +18,8 @@
     "url": "https://github.com/alphagov/learningtime-ad-sem1-postcode-geocoder/issues"
   },
   "homepage": "https://github.com/alphagov/learningtime-ad-sem1-postcode-geocoder#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
 }
