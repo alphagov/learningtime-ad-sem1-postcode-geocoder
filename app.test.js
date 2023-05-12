@@ -9,6 +9,8 @@ import {
   getCoordinates,
 } from "./postcodes.js";
 
+import { getPostcodeFromArgs } from "./cli.js";
+
 describe("Argument parsing", () => {
   test("'node app.js se137gp' gets se137gp from argv", () => {
     // Set up virtual command prompt
