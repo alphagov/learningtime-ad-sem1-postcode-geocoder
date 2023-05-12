@@ -1,3 +1,4 @@
+import {Decimal2DMS} from 'dms-to-decimal';
 let base_endpoint = "https://api.postcodes.io/postcodes/";
 
 // Quicker logging helper function
@@ -34,7 +35,13 @@ export async function geocodePostcode(postcode) {
 export function getCoordinates(rawJSON) {
   let longitude = rawJSON["result"]["longitude"];
   let latitude = rawJSON["result"]["latitude"];
-  return `(${longitude}, ${latitude})`;
+
+  const latDMS = Decimal2DMS(latitude, 'latitude');
+  console.log(latDMS)
+  const longDMS = Decimal2DMS(longitude, 'longitude');
+  console.log(longDMS)
+
+  return `(${latitude}, ${longitude})`;
 }
 
 export async function main() {
