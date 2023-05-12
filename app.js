@@ -1,4 +1,4 @@
-let base_endpoint = "https://api.postcodes.io/postcodes/";
+const base_endpoint = "https://api.postcodes.io/postcodes/";
 
 // Quicker logging helper function
 export function log(msg) {
@@ -6,8 +6,8 @@ export function log(msg) {
 }
 
 export async function validatePostcode(postcode) {
-  let rawresponse = await fetch(`${base_endpoint}${postcode}/validate`);
-  let response = await rawresponse.json();
+  const rawresponse = await fetch(`${base_endpoint}${postcode}/validate`);
+  const response = await rawresponse.json();
   return response["result"];
 }
 
@@ -27,21 +27,23 @@ export function getPostcodeFromArgs() {
 }
 
 export async function geocodePostcode(postcode) {
-  let response = await fetch(`https://api.postcodes.io/postcodes/${postcode}`);
+  const response = await fetch(
+    `https://api.postcodes.io/postcodes/${postcode}`
+  );
   return await response.json();
 }
 
 export function getCoordinates(rawJSON) {
-  let longitude = rawJSON["result"]["longitude"];
-  let latitude = rawJSON["result"]["latitude"];
+  const longitude = rawJSON["result"]["longitude"];
+  const latitude = rawJSON["result"]["latitude"];
   return [latitude, longitude];
 }
 
 export async function main() {
-  let postcode = getPostcodeFromArgs();
-  let postcodeIsValid = await validatePostcode(postcode);
+  const postcode = getPostcodeFromArgs();
+  const postcodeIsValid = await validatePostcode(postcode);
   if (postcodeIsValid) {
-    let coordinates = await geocodePostcode(postcode);
+    const coordinates = await geocodePostcode(postcode);
     return getCoordinates(coordinates);
   } else {
     throw new Error(`${postcode} is not a valid uk postcode.`);
