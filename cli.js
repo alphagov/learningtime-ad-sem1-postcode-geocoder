@@ -1,4 +1,4 @@
-import { main, log } from "./app.js";
+import { main, log } from "./postcodes.js";
 
 const base_maps_url = "http://maps.google.com/maps?z=12&t=m&q=loc:";
 

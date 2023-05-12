@@ -7,8 +7,7 @@ import {
   validatePostcode,
   geocodePostcode,
   getCoordinates,
-  getPostcodeFromArgs,
-} from ".";
+} from "./postcodes.js";
 
 describe("Argument parsing", () => {
   test("'node app.js se137gp' gets se137gp from argv", () => {
