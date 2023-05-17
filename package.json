@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "node --no-warnings=ExperimentalWarning --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "start": "node cli.js"
+    "start": "node cli.js",
+    "serve": "DEBUG=express:* node app.js"
   },
   "keywords": [],
   "author": "",
@@ -21,5 +22,8 @@
   "description": "",
   "devDependencies": {
     "jest": "^29.5.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
   }
 }
