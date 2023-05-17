@@ -1,14 +1,10 @@
-// getCoordinates(goodJSONObject) returns (long, lat) string
-// getCoordinates(badJSONObject) throws TypeError (TypeError: Cannot read properties of undefined)
-
-// main() should never return nil/undefined/etc
-
 import {
   validatePostcode,
   geocodePostcode,
   getCoordinates,
-  getPostcodeFromArgs,
-} from ".";
+} from "./postcodes.js";
+
+import { getPostcodeFromArgs } from "./cli.js";
 
 describe("Argument parsing", () => {
   test("'node app.js se137gp' gets se137gp from argv", () => {
