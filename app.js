@@ -20,8 +20,10 @@ app.get("/postcode/list", (req, res) => {
   return res.send(Object.values(postcodeList));
 });
 
-app.get("/postcode/:postcode", (req, res) => {
-  return res.send(postcodes[req.params.postcode]);
+app.get('/postcode/:singlePostcode', function(req, res){
+  const postcode = req.params.singlePostcode
+  const coordinates = postcodeList[postcode]
+  return res.send(coordinates);
 });
 
 app.listen("3000", () => log("Listening on port 3000"));
