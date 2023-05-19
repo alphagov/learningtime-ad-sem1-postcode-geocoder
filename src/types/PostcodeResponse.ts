@@ -1,4 +1,4 @@
-export default interface rawJSON {
+export interface PostcodeResponse {
   status: number;
   result: {
     postcode: string;
