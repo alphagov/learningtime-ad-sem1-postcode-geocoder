@@ -22,7 +22,7 @@ export function getPostcodeFromArgs() {
   );
 }
 
-export async function main(postcodeFromArgs) {
+export async function main(postcodeFromArgs: string) {
   const postcode = postcodeFromArgs;
   const postcodeIsValid = await validatePostcode(postcode);
   if (postcodeIsValid) {
