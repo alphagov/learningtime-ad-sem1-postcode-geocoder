@@ -1,3 +1,6 @@
+import rawJSON from "./types/rawJSON";
+import Coordinates from "./types/Coordinates";
+
 const base_endpoint = "https://api.postcodes.io/postcodes/";
 
 // Quicker logging helper function
@@ -18,7 +21,7 @@ export async function geocodePostcode(postcode: string) {
   return await response.json();
 }
 
-export function getCoordinates(rawJSON: any) {
+export function getCoordinates(rawJSON: rawJSON): Coordinates {
   const longitude = rawJSON["result"]["longitude"];
   const latitude = rawJSON["result"]["latitude"];
   return [latitude, longitude];
