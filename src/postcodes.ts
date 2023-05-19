@@ -1,5 +1,5 @@
 import { PostcodeResponse } from "./types/PostcodeResponse";
-import Coordinates from "./types/Coordinates";
+import { Coordinates } from "./types/Coordinates";
 
 const base_endpoint = "https://api.postcodes.io/postcodes/";
 
