@@ -3,13 +3,11 @@ import { log } from "./postcodes.js";
 
 const app = express();
 // Dummy data
-let postcodes = {
-  1: {
-    postcode: "se137gp",
+let postcodeList = {
+  "se137gp": {
     coordinates: [51.46423, -0.015401],
   },
-  2: {
-    postcode: "se146pw",
+  "se146pw": {
     coordinates: [51.471109, -0.034037],
   },
 };
@@ -19,7 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/postcode/list", (req, res) => {
-  return res.send(Object.values(postcodes));
+  return res.send(Object.values(postcodeList));
 });
 
 app.get("/postcode/:postcode", (req, res) => {
