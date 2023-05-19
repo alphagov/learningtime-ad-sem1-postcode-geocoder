@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node --no-warnings=ExperimentalWarning --experimental-vm-modules node_modules/jest/bin/jest.js",
     "build": "npx tsc",
-    "start": "node dist/cli.js"
+    "start": "node dist/cli.js",
+    "go": "npx tsc && node dist/cli.js"
   },
   "keywords": [],
   "author": "",
