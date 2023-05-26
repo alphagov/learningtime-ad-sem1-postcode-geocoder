@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
 	return res.send("GET request to '/'");
 });
 
-app.get("/postcode/:givenPostcode", async function(req, res, next){
+app.get("/postcode/:givenPostcode", async function(req, res){
 	const postcode = req.params.givenPostcode;
 	if (await validatePostcode(postcode)) {
 		const postcodeioResponse = await geocodePostcode(postcode);
