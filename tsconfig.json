@@ -22,9 +22,5 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   "include": ["src/**/*"],
-  "exclude": [
-    "src/hello.ts",
-    "src/types/Coordinates.ts",
-    "src/types/PostcodeResponse.ts"
-  ]
+  "exclude": []
 }
