@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import {log, validatePostcode, geocodePostcode, getCoordinates} from "./postcodes.js";
 const base_maps_url = "http://maps.google.com/maps?z=12&t=m&q=loc:";
 
@@ -8,7 +9,7 @@ app.get("/", (req, res) => {
 	return res.send("GET request to '/'");
 });
 
-app.get("/postcode/:givenPostcode", async function(req, res){
+app.get("/postcode/:givenPostcode", cors(), async function(req, res){
 	const postcode = req.params.givenPostcode;
 	if (await validatePostcode(postcode)) {
 		const postcodeioResponse = await geocodePostcode(postcode);
