@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "test": "node --no-warnings=ExperimentalWarning --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "start": "node cli.js",
+    "build": "npx tsc",
+    "start": "node dist/cli.js",
+    "go": "npx tsc && node dist/cli.js",
     "serve": "DEBUG=express:* nodemon app.js"
   },
   "keywords": [],
@@ -21,7 +23,13 @@
   "homepage": "https://github.com/alphagov/learningtime-ad-sem1-postcode-geocoder#readme",
   "description": "",
   "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.2.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.6",
+    "@typescript-eslint/parser": "^5.59.6",
+    "eslint": "^8.40.0",
     "jest": "^29.5.0",
+    "typescript": "^5.0.4",
     "nodemon": "^2.0.22"
   },
   "dependencies": {
