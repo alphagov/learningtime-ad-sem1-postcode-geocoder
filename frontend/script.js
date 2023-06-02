@@ -22,6 +22,7 @@ form.addEventListener("submit", async (e) => {
 	postcodeValue = postcodeValue.replace(/\s+/g, "");
 	document.getElementById("postcode-field").value = "";
 	// TODO: #44 Add a loader while waiting for the fetch call to complete
+	result.innerHTML = "Loading...";
 	result.innerHTML = await makeRequest(postcodeValue);
 	// TODO: #43 Catch the "Not a valid postcode" error returned by the server
 });
