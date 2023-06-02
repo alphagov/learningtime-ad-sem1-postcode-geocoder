@@ -26,8 +26,9 @@ form.addEventListener("submit", async (e) => {
 	let postcodeValue = document.getElementById("postcode-field").value.trim();
 	postcodeValue = postcodeValue.replace(/\s+/g, "");
 	document.getElementById("postcode-field").value = "";
-	result.innerHTML = "Loading...";
+	document.getElementById("loader-container").classList.add("spinner-loader");
 	const coordinates =	 await makeRequest(postcodeValue);
+	document.getElementById("loader-container").classList.remove("spinner-loader");
 	result.innerHTML = coordinates;
 	map.setView(coordinates, 15);
 	const marker = L.circle(coordinates, {
