@@ -12,7 +12,11 @@ async function makeRequest(postcode) {
 // Setup
 const form = document.getElementById("postcode-form");
 const result = document.getElementById("coordinates");
-
+var map = L.map("map").setView([54.613891, -4.339195], 6);
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+	maxZoom: 19,
+	attribution: "&copy; <a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a>"
+}).addTo(map);
 
 // Form submission Eventlistener
 // TODO: #42 This should be rate limited somehow. Clicking it over and over sends a request everytime.
