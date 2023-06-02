@@ -22,6 +22,7 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 // TODO: #42 This should be rate limited somehow. Clicking it over and over sends a request everytime.
 form.addEventListener("submit", async (e) => {
 	e.preventDefault();
+	// TODO: #48 Delete exisiting marker before adding a new one
 	let postcodeValue = document.getElementById("postcode-field").value.trim();
 	postcodeValue = postcodeValue.replace(/\s+/g, "");
 	document.getElementById("postcode-field").value = "";
