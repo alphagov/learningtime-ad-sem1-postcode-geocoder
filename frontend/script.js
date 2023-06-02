@@ -26,5 +26,6 @@ form.addEventListener("submit", async (e) => {
 	postcodeValue = postcodeValue.replace(/\s+/g, "");
 	document.getElementById("postcode-field").value = "";
 	result.innerHTML = "Loading...";
-	result.innerHTML = await makeRequest(postcodeValue);
+	const coordinates =	 await makeRequest(postcodeValue);
+	result.innerHTML = coordinates;
 });
