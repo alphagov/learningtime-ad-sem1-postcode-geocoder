@@ -28,4 +28,11 @@ form.addEventListener("submit", async (e) => {
 	result.innerHTML = "Loading...";
 	const coordinates =	 await makeRequest(postcodeValue);
 	result.innerHTML = coordinates;
+	map.setView(coordinates, 15);
+	const marker = L.circle(coordinates, {
+		color: "red",
+		fillColor: "#f03",
+		fillOpacity: 0.5,
+		radius: 50
+	}).addTo(map);
 });
