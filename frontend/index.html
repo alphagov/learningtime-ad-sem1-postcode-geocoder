@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Postcode Geocoder</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <title>Postcode Geocoder</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/>
 </head>
 <body>
-<script>
-	async function makeRequest() {
-		const response = await fetch('https://postcode-geocoder.onrender.com/postcode/se147gp');
-  		const myJson = await response.json(); //extract JSON from the http
-		console.log(myJson)
-	}
 
-makeRequest()
+<form id="postcode-form" method="post">
+  <label for="postcode-field">Postcode</label><br>
+  <input type="text" id="postcode-field" name="postcode-field"><br><br>
+  <input type="submit" value="Submit">
+</form> 
 
-</script>
+<p id="coordinates"></p>
+<div id="loader-container" class=""></div>
+<div id="map"></div>
+
 </body>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+<script src="script.js"></script>
+
 </html>
