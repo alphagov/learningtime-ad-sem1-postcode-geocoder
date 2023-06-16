@@ -23,3 +23,7 @@
     transform: rotate(360deg);
   }
 }
+
+#invalid-postcode-error {
+  display: none;
+}
