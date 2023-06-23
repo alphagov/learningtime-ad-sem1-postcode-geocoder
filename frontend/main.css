@@ -1,5 +1,7 @@
 #map {
-  height: 70vh;
+  height: 50vh;
+  /* margin: 0 auto; */
+  width: 100%;
 }
 
 .spinner-loader {
@@ -9,6 +11,7 @@
   width: 30px;
   height: 30px;
   animation: spin 1s linear infinite;
+  p: 10px;
 }
 
 @keyframes spin {
@@ -19,4 +22,15 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+#invalid-postcode-error {
+  display: none;
+}
+
+.govuk-width-container {}
+
+#main-content {
+  width: 50vw;
+  margin: 0 auto;
 }
