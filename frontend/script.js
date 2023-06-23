@@ -30,7 +30,7 @@ form.addEventListener("submit", async (e) => {
   document.getElementById("loader-container").classList.add("spinner-loader");
   const coordinates =   await makeRequest(postcodeValue);
   document.getElementById("loader-container").classList.remove("spinner-loader");
-  result.innerHTML = coordinates;
+  result.innerHTML = `The postcode <strong>${postcodeValue.toUpperCase()}</strong> is at these approximate coordinates: <strong>${coordinates}</strong>.`;
   map.setView(coordinates, 15);
   const marker = L.circle(coordinates, {
     color: "red",
